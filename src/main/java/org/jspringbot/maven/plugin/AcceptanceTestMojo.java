@@ -383,9 +383,9 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
         InputStream in = null;
 
         try {
-            in = AcceptanceTestMojo.class.getResourceAsStream("highlight.css");
+            in = AcceptanceTestMojo.class.getResourceAsStream("/highlight.css");
             out = new FileWriter(cssFile);
-            IOUtils.copy(AcceptanceTestMojo.class.getResourceAsStream("highlight.css"), out);
+            IOUtils.copy(in, out);
         } catch (IOException e) {
             throw new MojoExecutionException(e.getMessage(), e);
         } finally {
