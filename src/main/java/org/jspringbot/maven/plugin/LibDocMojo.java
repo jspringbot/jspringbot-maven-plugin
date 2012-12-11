@@ -62,13 +62,13 @@ public class LibDocMojo extends AbstractMojoWithLoadedClasspath {
      * the project.
      *
      */
-    @Parameter(defaultValue = "library.html", required = true)
+    @Parameter(defaultValue = "${libdoc.library}", required = true)
     private String outputFile;
 
     /**
      * Sets the name of the documented library or resource.
      */
-    @Parameter(defaultValue = "${name}")
+    @Parameter(defaultValue = "${libdoc.name}")
     private String name;
 
     /**
