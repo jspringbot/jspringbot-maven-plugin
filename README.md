@@ -1,4 +1,4 @@
-jSpringBot Maven Plugin
+jSpringBot Maven Plugin [![Build Status](https://buildhive.cloudbees.com/job/jspringbot/job/jspringbot-maven-plugin/badge/icon)](https://buildhive.cloudbees.com/job/jspringbot/job/jspringbot-maven-plugin/)
 =======================
 
 ### Introduction
