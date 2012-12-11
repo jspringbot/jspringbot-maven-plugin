@@ -1,5 +1,7 @@
 package org.jspringbot.maven.plugin;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
@@ -19,7 +21,7 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -372,7 +374,24 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
 
         int robotRunReturnValue = RobotFramework.run(runArguments);
         evaluateReturnCode(robotRunReturnValue);
+        generateCss();
+    }
 
+    private void generateCss() throws MojoExecutionException {
+        File cssFile = new File(outputDirectory, "highlight.css");
+        FileWriter out = null;
+        InputStream in = null;
+
+        try {
+            in = AcceptanceTestMojo.class.getResourceAsStream("highlight.css");
+            out = new FileWriter(cssFile);
+            IOUtils.copy(AcceptanceTestMojo.class.getResourceAsStream("highlight.css"), out);
+        } catch (IOException e) {
+            throw new MojoExecutionException(e.getMessage(), e);
+        } finally {
+            IOUtils.closeQuietly(in);
+            IOUtils.closeQuietly(out);
+        }
     }
 
     protected void evaluateReturnCode(int robotRunReturnValue)
