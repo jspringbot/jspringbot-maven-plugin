@@ -62,7 +62,7 @@ public class LibDocMojo extends AbstractMojoWithLoadedClasspath {
      * the project.
      *
      */
-    @Parameter(defaultValue = "${libdoc.library}", required = true)
+    @Parameter(defaultValue = "${libdoc.output}", required = true)
     private String outputFile;
 
     /**
