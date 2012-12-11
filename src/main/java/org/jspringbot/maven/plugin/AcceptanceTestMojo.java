@@ -1,6 +1,5 @@
 package org.jspringbot.maven.plugin;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -363,6 +362,12 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
     @Parameter
     private boolean noStatusReturnCode;
 
+    /**
+     * The default highlight css.
+     */
+    @Parameter(defaultValue = "default")
+    private String highlightCss = "default";
+
     protected void subclassExecute() throws MojoExecutionException, MojoFailureException {
         if (shouldSkipTests()) {
             getLog().info("RobotFramework tests are skipped.");
@@ -383,7 +388,7 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
         InputStream in = null;
 
         try {
-            in = AcceptanceTestMojo.class.getResourceAsStream("/highlight.css");
+            in = AcceptanceTestMojo.class.getResourceAsStream(String.format("/%s.css", highlightCss));
             out = new FileWriter(cssFile);
             IOUtils.copy(in, out);
         } catch (IOException e) {

@@ -1,5 +1,4 @@
 .syntax .hll { background-color: #ffffcc }
-.syntax  { background: #f0f0f0; }
 .syntax .c { color: #60a0b0; font-style: italic } /* Comment */
 .syntax .err { border: 1px solid #FF0000 } /* Error */
 .syntax .k { color: #007020; font-weight: bold } /* Keyword */
