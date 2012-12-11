@@ -62,8 +62,8 @@ public class LibDocMojo extends AbstractMojoWithLoadedClasspath {
      * the project.
      *
      */
-    @Parameter(defaultValue = "${outputFile}", required = true)
-    private File outputFile;
+    @Parameter(defaultValue = "library.html", required = true)
+    private String outputFile;
 
     /**
      * Sets the name of the documented library or resource.
@@ -81,7 +81,7 @@ public class LibDocMojo extends AbstractMojoWithLoadedClasspath {
      * Paths are considered relative to the location of <code>pom.xml</code> and must point to a valid Python/Java
      * source file or a resource file. For example <code>src/main/java/com/test/ExampleLib.java</code>
      */
-    @Parameter(defaultValue = "${libraryOrResourceFile}", required = true)
+    @Parameter(defaultValue = "org.jspringbot.spring.LibDoc", required = true)
     private String libraryOrResourceFile;
 
     /**
@@ -154,7 +154,7 @@ public class LibDocMojo extends AbstractMojoWithLoadedClasspath {
     }
 
     private String getOutputPath() {
-        return outputDirectory + File.separator + outputFile.getName();
+        return outputDirectory + File.separator + outputFile;
     }
 
     private List<File> getExtraPathDirectoriesWithDefault() {
