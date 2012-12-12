@@ -365,7 +365,7 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
     /**
      * The default highlight css.
      */
-    @Parameter(defaultValue = "default")
+    @Parameter(defaultValue = "${highlightCss}")
     private String highlightCss = "default";
 
     protected void subclassExecute() throws MojoExecutionException, MojoFailureException {
@@ -383,6 +383,10 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
     }
 
     private void generateCss() throws MojoExecutionException {
+        if(highlightCss == null) {
+            highlightCss = "default";
+        }
+
         File cssFile = new File(outputDirectory, "highlight.css");
         FileWriter out = null;
         InputStream in = null;
