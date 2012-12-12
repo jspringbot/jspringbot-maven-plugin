@@ -18,6 +18,7 @@ package org.jspringbot.maven.plugin;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 
@@ -30,7 +31,7 @@ import org.apache.maven.plugins.annotations.ResolutionScope;
  * name.
  *
  */
-@Mojo(name = "run", threadSafe = true, requiresDependencyResolution = ResolutionScope.TEST)
+@Mojo(name = "run", threadSafe = true, defaultPhase = LifecyclePhase.INTEGRATION_TEST, requiresDependencyResolution = ResolutionScope.TEST)
 public class RobotFrameworkMojo extends AcceptanceTestMojo {
 
     protected void evaluateReturnCode(int robotRunReturnValue) throws MojoFailureException, MojoExecutionException {
