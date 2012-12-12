@@ -1,3 +1,9 @@
+pre { font-size:12px;font-family: Bitstream Vera Sans Mono,monospace;}
+.syntaxtable { margin-top: 15px;margin-bottom: 10px;padding: 0;background: #f8f8f8;}
+.linenos { background-color: #ECECEC; padding-left: 10px; padding-right: 5px;border-right: 1px solid #DDDDDD;color: #AAAAAA;font-weight:normal;}
+.syntax { margin-top: 15px; padding-left: 10px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;}
+.syntaxtable .syntax {border: 0; margin:0;}
+
 .syntax .hll { background-color: #ffffcc }
 .syntax .c { color: #0099FF; font-style: italic } /* Comment */
 .syntax .err { color: #AA0000; background-color: #FFAAAA } /* Error */
