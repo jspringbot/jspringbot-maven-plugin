@@ -1,5 +1,5 @@
 pre { font-size:12px;font-family: Bitstream Vera Sans Mono,monospace;}
-.syntaxtable { margin-top: 15px;margin-bottom: 10px;padding: 0;background: #f8f8f8;width: 100%;}
+.syntaxtable { margin-top: 15px;margin-bottom: 10px;padding: 0;background: #f8f8f8;width:100%;border-bottom: 1px solid #CCCCCC;border-top: 1px solid #CCCCCC;}
 .linenos { background-color: #ECECEC; padding-left: 10px; padding-right: 5px;border-right: 1px solid #DDDDDD;color: #AAAAAA;font-weight:normal;width: 15px;}
 .syntax { margin-top: 15px; padding-left: 10px; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;}
 .syntaxtable .syntax {border: 0; margin:0;}
