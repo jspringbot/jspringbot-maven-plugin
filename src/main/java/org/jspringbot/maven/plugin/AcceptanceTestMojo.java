@@ -503,6 +503,11 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
     private String[] generateRunArguments() {
         ArrayList<String> generatedArguments = new ArrayList<String>();
 
+        // ignore all tag.
+        if(tags != null && tags.size() == 1 && tags.contains("all")) {
+            tags.clear();
+        }
+
         addFileToArguments(generatedArguments, outputDirectory, "-d");
         addFileToArguments(generatedArguments, output, "-o");
         addFileToArguments(generatedArguments, log, "-l");
