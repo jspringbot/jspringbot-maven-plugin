@@ -504,8 +504,8 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
         ArrayList<String> generatedArguments = new ArrayList<String>();
 
         // ignore all tag.
-        if(tags != null && tags.size() == 1 && tags.contains("all")) {
-            tags.clear();
+        if(includes != null && includes.size() == 1 && includes.iterator().next().equals("all")) {
+            includes.clear();
         }
 
         addFileToArguments(generatedArguments, outputDirectory, "-d");
