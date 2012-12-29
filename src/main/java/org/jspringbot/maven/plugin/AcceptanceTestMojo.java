@@ -503,9 +503,19 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
     private String[] generateRunArguments() {
         ArrayList<String> generatedArguments = new ArrayList<String>();
 
-        // ignore all tag.
+        // ignore 'all' value includes.
         if(includes != null && includes.size() == 1 && includes.iterator().next().equals("all")) {
             includes.clear();
+        }
+
+        // support for comma delimited
+        if(includes != null && includes.size() == 1) {
+            String include = includes.iterator().next();
+
+            if(include.contains(",")) {
+                includes.clear();
+                includes.addAll(Arrays.asList(StringUtils.split(include, ",")));
+            }
         }
 
         addFileToArguments(generatedArguments, outputDirectory, "-d");
