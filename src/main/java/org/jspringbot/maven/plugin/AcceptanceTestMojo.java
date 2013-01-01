@@ -8,7 +8,7 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.codehaus.plexus.util.StringUtils;
-import org.robotframework.RobotFramework;
+import org.jspringbot.runner.SpringRobotFramework;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -377,7 +377,7 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
 
         getLog().debug("robotframework arguments: " + StringUtils.join(runArguments, " "));
 
-        int robotRunReturnValue = RobotFramework.run(runArguments);
+        int robotRunReturnValue = SpringRobotFramework.run(runArguments);
         evaluateReturnCode(robotRunReturnValue);
         generateCss();
     }
