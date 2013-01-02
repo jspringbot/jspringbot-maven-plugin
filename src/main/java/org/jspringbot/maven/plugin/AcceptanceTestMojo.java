@@ -518,6 +518,16 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
             }
         }
 
+        // add jspringbot listener.
+        if(listener == null) {
+            listener = "JSpringBotListener";
+        } else {
+            if(listeners == null) {
+                listeners = new ArrayList<String>();
+            }
+            listeners.add("JSpringBotListener");
+        }
+
         addFileToArguments(generatedArguments, outputDirectory, "-d");
         addFileToArguments(generatedArguments, output, "-o");
         addFileToArguments(generatedArguments, log, "-l");

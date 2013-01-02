@@ -81,7 +81,7 @@ public class LibDocMojo extends AbstractMojoWithLoadedClasspath {
      * Paths are considered relative to the location of <code>pom.xml</code> and must point to a valid Python/Java
      * source file or a resource file. For example <code>src/main/java/com/test/ExampleLib.java</code>
      */
-    @Parameter(defaultValue = "org.jspringbot.spring.LibDoc", required = true)
+    @Parameter(defaultValue = "JSpringBotLibDoc", required = true)
     private String libraryOrResourceFile;
 
     /**
