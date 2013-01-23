@@ -522,7 +522,9 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
         if(excludes != null && excludes.size() == 1) {
             String exclude = excludes.iterator().next();
 
-            if(exclude.contains(",")) {
+            if(StringUtils.isEmpty(exclude)) {
+                excludes.clear();
+            } else if(exclude.contains(",")) {
                 excludes.clear();
                 excludes.addAll(Arrays.asList(StringUtils.split(exclude, ",")));
             }
