@@ -518,6 +518,17 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
             }
         }
 
+        // support for comma delimited
+        if(excludes != null && excludes.size() == 1) {
+            String exclude = excludes.iterator().next();
+
+            if(exclude.contains(",")) {
+                excludes.clear();
+                excludes.addAll(Arrays.asList(StringUtils.split(exclude, ",")));
+            }
+        }
+
+
         // add jspringbot listener.
         if(listener == null) {
             listener = "JSpringBotListener";
