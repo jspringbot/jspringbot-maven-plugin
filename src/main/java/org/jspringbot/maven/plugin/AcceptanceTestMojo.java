@@ -276,6 +276,13 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
     private List<String> removeKeywords;
 
     /**
+     * Determines if no output is generated
+     */
+    @Parameter
+    private boolean noOutput;
+
+
+    /**
      * Width of the monitor output. Default is 78.
      */
     @Parameter
@@ -385,7 +392,10 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
 
         int robotRunReturnValue = SpringRobotFramework.run(runArguments);
         evaluateReturnCode(robotRunReturnValue);
-        generateCss();
+
+        if(!noOutput) {
+            generateCss();
+        }
     }
 
     private void generateCss() throws MojoExecutionException {
@@ -548,7 +558,13 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
         }
 
         addFileToArguments(generatedArguments, outputDirectory, "-d");
-        addFileToArguments(generatedArguments, output, "-o");
+
+        if(!noOutput) {
+            addFileToArguments(generatedArguments, output, "-o");
+        } else {
+            addNonEmptyStringToArguments(generatedArguments, "NONE", "--output");
+        }
+
         addFileToArguments(generatedArguments, log, "-l");
         addFileToArguments(generatedArguments, report, "-r");
         addFileToArguments(generatedArguments, summary, "-S");
