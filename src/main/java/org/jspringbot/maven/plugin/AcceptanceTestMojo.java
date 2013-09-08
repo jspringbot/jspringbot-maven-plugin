@@ -270,6 +270,12 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
     private boolean warnOnSkippedFiles;
 
     /**
+     * Show a warning when an invalid file is skipped.
+     */
+    @Parameter
+    private List<String> removeKeywords;
+
+    /**
      * Width of the monitor output. Default is 78.
      */
     @Parameter
@@ -584,6 +590,8 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
         addListToArguments(generatedArguments, tagDocs, "--tagdoc");
         addListToArguments(generatedArguments, tagStatLinks, "--tagstatlink");
         addListToArguments(generatedArguments, listeners, "--listener");
+        addListToArguments(generatedArguments, removeKeywords, "--removekeywords");
+
 
         if (extraPathDirectories == null) {
             addFileToArguments(generatedArguments, defaultExtraPath, "-P");
