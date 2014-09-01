@@ -36,6 +36,7 @@
 
   <packaging>maven-plugin</packaging>
   <name>jspringbot-maven-plugin</name>
+  <url>http://jspringbot.org</url>
 
   <licenses>
     <license>
@@ -61,7 +62,27 @@
     <connection>scm:git:https://github.com/jspringbot/jspringbot-maven-plugin.git</connection>
     <url>scm:git:https://github.com/jspringbot/jspringbot-maven-plugin.git</url>
     <developerConnection>scm:git:https://github.com/jspringbot/jspringbot-maven-plugin.git</developerConnection>
+    <tag>HEAD</tag>
   </scm>
+
+  <developers>
+    <developer>
+      <id>owner</id>
+      <email>badong2210@yahoo.com</email>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>owner</id>
+      <email>alvinrdeleon@me.com</email>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+    </developer>
+  </developers>
 
   <properties>
     <mavenVersion>2.0.6</mavenVersion>
