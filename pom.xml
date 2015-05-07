@@ -85,7 +85,7 @@
   <properties>
     <mavenVersion>2.0.6</mavenVersion>
     <mavenPluginPluginVersion>3.1</mavenPluginPluginVersion>
-    <jspringbot.version>1.2-SNAPSHOT</jspringbot.version>
+    <jspringbot.version>1.2</jspringbot.version>
   </properties>
 
   <build>
