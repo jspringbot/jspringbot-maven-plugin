@@ -1,13 +1,13 @@
 package org.jspringbot.maven.plugin;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.plugins.annotations.ResolutionScope;
-import org.codehaus.plexus.util.StringUtils;
 import org.jspringbot.runner.SpringRobotFramework;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -21,10 +21,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 /**
  * Runs the Robot tests. Behaves like invoking the "jybot" command. The goal will not fail the maven
@@ -504,7 +501,7 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
                 if (delim.contains(tokenOrDelim)) {
                     sb.append(tokenOrDelim);
                 } else {
-                    sb.append(StringUtils.capitalizeFirstLetter(tokenOrDelim));
+                    sb.append(StringUtils.capitalize(tokenOrDelim));
                 }
             }
             testSuiteName = sb.toString();
@@ -532,6 +529,13 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
                 includes.clear();
                 includes.addAll(Arrays.asList(StringUtils.split(include, ",")));
             }
+
+            for(Iterator<String> itr = includes.iterator(); itr.hasNext();) {
+                String item = itr.next();
+                if(StringUtils.isBlank(item)) {
+                    itr.remove();
+                }
+            }
         }
 
         // support for comma delimited
@@ -543,6 +547,13 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
             } else if(exclude.contains(",")) {
                 excludes.clear();
                 excludes.addAll(Arrays.asList(StringUtils.split(exclude, ",")));
+            }
+
+            for(Iterator<String> itr = excludes.iterator(); itr.hasNext();) {
+                String item = itr.next();
+                if(StringUtils.isBlank(item)) {
+                    itr.remove();
+                }
             }
         }
 
