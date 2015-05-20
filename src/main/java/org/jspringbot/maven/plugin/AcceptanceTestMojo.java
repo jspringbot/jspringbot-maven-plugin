@@ -372,12 +372,6 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
     @Parameter
     private boolean noStatusReturnCode;
 
-    /**
-     * The default highlight css.
-     */
-    @Parameter(defaultValue = "${highlightCss}")
-    private String highlightCss = "default";
-
     protected void subclassExecute() throws MojoExecutionException, MojoFailureException {
         if (shouldSkipTests()) {
             getLog().info("RobotFramework tests are skipped.");
@@ -389,31 +383,6 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
 
         int robotRunReturnValue = SpringRobotFramework.run(runArguments);
         evaluateReturnCode(robotRunReturnValue);
-
-        if(!noOutput) {
-            generateCss();
-        }
-    }
-
-    private void generateCss() throws MojoExecutionException {
-        if(highlightCss == null) {
-            highlightCss = "default";
-        }
-
-        File cssFile = new File(outputDirectory, "highlight.css");
-        FileWriter out = null;
-        InputStream in = null;
-
-        try {
-            in = AcceptanceTestMojo.class.getResourceAsStream(String.format("/%s.css", highlightCss));
-            out = new FileWriter(cssFile);
-            IOUtils.copy(in, out);
-        } catch (IOException e) {
-            throw new MojoExecutionException(e.getMessage(), e);
-        } finally {
-            IOUtils.closeQuietly(in);
-            IOUtils.closeQuietly(out);
-        }
     }
 
     protected void evaluateReturnCode(int robotRunReturnValue)
