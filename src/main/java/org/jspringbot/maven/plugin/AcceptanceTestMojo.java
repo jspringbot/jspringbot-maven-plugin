@@ -372,6 +372,9 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
     @Parameter
     private boolean noStatusReturnCode;
 
+    @Parameter
+    private boolean splitLogs;
+
     protected void subclassExecute() throws MojoExecutionException, MojoFailureException {
         if (shouldSkipTests()) {
             getLog().info("RobotFramework tests are skipped.");
@@ -569,6 +572,7 @@ public class AcceptanceTestMojo extends AbstractMojoWithLoadedClasspath {
         addFlagToArguments(generatedArguments, noStatusReturnCode, "--nostatusrc");
         addFlagToArguments(generatedArguments, timestampOutputs, "-T");
         addFlagToArguments(generatedArguments, warnOnSkippedFiles, "--warnonskippedfiles");
+        addFlagToArguments(generatedArguments, splitLogs, "--splitlog");
 
         addListToArguments(generatedArguments, metadata, "-M");
         addListToArguments(generatedArguments, tags, "-G");
