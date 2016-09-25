@@ -33,7 +33,7 @@ import java.util.List;
 
 /**
  * Create documentation of test libraries or resource files using the Robot Framework <code>libdoc</code> tool.
- * <p/>
+ *
  * Uses the <code>libdoc</code> bundled in Robot Framework jar distribution. For more help, run
  * <code>java -jar robotframework.jar libdoc --help</code>.
  *
