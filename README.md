@@ -1,4 +1,4 @@
-jSpringBot Maven Plugin [![Build Status](https://buildhive.cloudbees.com/job/jspringbot/job/jspringbot-maven-plugin/badge/icon)](https://buildhive.cloudbees.com/job/jspringbot/job/jspringbot-maven-plugin/)
+jSpringBot Maven Plugin [![Build Status](https://travis-ci.org/jspringbot/jspringbot-maven-plugin.svg?branch=master)](https://travis-ci.org/jspringbot/jspringbot-maven-plugin)
 =======================
 
 ### Introduction
