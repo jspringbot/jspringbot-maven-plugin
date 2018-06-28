@@ -30,7 +30,7 @@
 
   <groupId>org.jspringbot</groupId>
   <artifactId>jspringbot-maven-plugin</artifactId>
-  <version>1.7-SNAPSHOT</version>
+  <version>1.7</version>
 
   <packaging>maven-plugin</packaging>
   <name>jspringbot-maven-plugin</name>
@@ -85,7 +85,7 @@
   <properties>
     <mavenVersion>2.0.6</mavenVersion>
     <mavenPluginPluginVersion>3.1</mavenPluginPluginVersion>
-    <jspringbot.version>1.5</jspringbot.version>
+    <jspringbot.version>1.7</jspringbot.version>
   </properties>
 
   <build>
