@@ -30,11 +30,12 @@
 
   <groupId>org.jspringbot</groupId>
   <artifactId>jspringbot-maven-plugin</artifactId>
-  <version>1.9-SNAPSHOT</version>
+  <version>1.9</version>
 
   <packaging>maven-plugin</packaging>
   <name>jspringbot-maven-plugin</name>
   <url>http://jspringbot.org</url>
+  <description>JSpringBot Maven Plugin</description>
 
   <licenses>
     <license>
@@ -87,7 +88,7 @@
   <properties>
     <mavenVersion>2.0.6</mavenVersion>
     <mavenPluginPluginVersion>3.1</mavenPluginPluginVersion>
-    <jspringbot.version>1.8</jspringbot.version>
+    <jspringbot.version>1.9</jspringbot.version>
   </properties>
 
   <build>
