@@ -88,7 +88,6 @@
   <properties>
     <mavenVersion>2.0.6</mavenVersion>
     <mavenPluginPluginVersion>3.1</mavenPluginPluginVersion>
-    <jspringbot.version>1.9</jspringbot.version>
   </properties>
 
   <build>
@@ -183,7 +182,7 @@
     <dependency>
       <groupId>org.jspringbot</groupId>
       <artifactId>jspringbot</artifactId>
-      <version>${jspringbot.version}</version>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-lang</groupId>
